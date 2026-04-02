@@ -193,3 +193,80 @@
         <button style="background: #2d3436; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Vikipedi'de Ara</button>
     </div>
 </div>
+<div class="card" style="background: #1a1a1a; color: #fff; border: 2px solid #333; margin-top: 30px; box-shadow: 0 0 20px rgba(0,0,0,0.5);">
+    <h2 style="text-align: center; color: #00fbff; text-shadow: 0 0 10px #00fbff; font-family: 'Righteous'; margin-bottom: 30px;">
+        ⚡ DİJİTAL BİLGİ ÜSSÜ
+    </h2>
+
+    <div class="neon-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 10px;">
+        
+        <div onclick="showNote('math')" style="border: 2px solid #ff0055; padding: 20px; border-radius: 15px; cursor: pointer; box-shadow: inset 0 0 10px #ff0055, 0 0 10px #ff0055; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <h3 style="color: #ff0055; text-align: center;">📐 MATEMATİK</h3>
+            <p style="font-size: 0.8rem; text-align: center;">Tıkla ve Formülleri Gör</p>
+        </div>
+
+        <div onclick="showNote('science')" style="border: 2px solid #00ff41; padding: 20px; border-radius: 15px; cursor: pointer; box-shadow: inset 0 0 10px #00ff41, 0 0 10px #00ff41; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <h3 style="color: #00ff41; text-align: center;">🧪 FEN BİLİMLERİ</h3>
+            <p style="font-size: 0.8rem; text-align: center;">Deney ve Hücre Notları</p>
+        </div>
+
+        <div onclick="showNote('turkish')" style="border: 2px solid #00fbff; padding: 20px; border-radius: 15px; cursor: pointer; box-shadow: inset 0 0 10px #00fbff, 0 0 10px #00fbff; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <h3 style="color: #00fbff; text-align: center;">🖋️ TÜRKÇE</h3>
+            <p style="font-size: 0.8rem; text-align: center;">Yazım ve Anlam Bilgisi</p>
+        </div>
+
+        <div onclick="showNote('social')" style="border: 2px solid #ff8800; padding: 20px; border-radius: 15px; cursor: pointer; box-shadow: inset 0 0 10px #ff8800, 0 0 10px #ff8800; transition: 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <h3 style="color: #ff8800; text-align: center;">🌍 SOSYAL</h3>
+            <p style="font-size: 0.8rem; text-align: center;">Tarih ve Coğrafya</p>
+        </div>
+    </div>
+
+    <div id="note-display" style="display: none; margin-top: 30px; padding: 25px; border-radius: 15px; border: 2px dashed #555; background: #000; animation: fadeIn 0.5s;">
+        <h2 id="note-title" style="margin-bottom: 15px;"></h2>
+        <div id="note-content" style="line-height: 1.8; font-size: 1.1rem; color: #ccc;"></div>
+        <br>
+        <button onclick="document.getElementById('note-display').style.display='none'" style="background: #444; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Paneli Kapat</button>
+    </div>
+</div>
+
+<script>
+    const allNotes = {
+        math: {
+            title: "📐 MATEMATİK ÖNEMLİ NOTLAR",
+            content: "<ul><li><b>Üslü Sayılar:</b> Bir sayının kendisiyle çarpımıdır. Sıfırıncı kuvvet her zaman 1'dir!</li><li><b>Asal Sayılar:</b> Sadece 1'e ve kendisine bölünenler. En küçük asal sayı 2'dir.</li><li><b>İşlem Önceliği:</b> Önce Parantez, sonra Üslü Sayı, sonra Çarpma/Bölme, en son Toplama/Çıkarma!</li></ul>"
+        },
+        science: {
+            title: "🧪 FEN BİLİMLERİ ÖNEMLİ NOTLAR",
+            content: "<ul><li><b>Hücre:</b> Canlıların en küçük yapı taşıdır. Bitki hücresi köşeli, hayvan hücresi yuvarlaktır.</li><li><b>Gezegenler:</b> Güneşe en yakın Merkür, en büyük Jüpiter'dir.</li><li><b>Kuvvet:</b> Dinamometre ile ölçülür, birimi Newton (N)'dur.</li></ul>"
+        },
+        turkish: {
+            title: "🖋️ TÜRKÇE ÖNEMLİ NOTLAR",
+            content: "<ul><li><b>Sözcükte Anlam:</b> Gerçek anlam (ilk akla gelen), Mecaz anlam (soyutlanmış).</li><li><b>Noktalama:</b> Özel isimlerden sonra gelen ekler kesme işareti (') ile ayrılır.</li><li><b>Cümle Türleri:</b> İsim cümleleri ve Fiil cümleleri arasındaki farka dikkat!</li></ul>"
+        },
+        social: {
+            title: "🌍 SOSYAL BİLGİLER ÖNEMLİ NOTLAR",
+            content: "<ul><li><b>Anadolu Uygarlıkları:</b> Frigler (Fibula), Lidyalılar (Para), Urartular (Su kanalları).</li><li><b>İklimler:</b> Akdeniz (Maki), Karadeniz (Orman), Karasal (Bozkır).</li><li><b>Tarih:</b> 29 Ekim 1923 Cumhuriyet'in ilanıdır.</li></ul>"
+        }
+    };
+
+    function showNote(subject) {
+        const display = document.getElementById('note-display');
+        const title = document.getElementById('note-title');
+        const content = document.getElementById('note-content');
+
+        const data = allNotes[subject];
+        title.innerText = data.title;
+        title.style.color = document.querySelector(`[onclick="showNote('${subject}')"] h3`).style.color;
+        content.innerHTML = data.content;
+        
+        display.style.display = 'block';
+        display.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+<style>
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
